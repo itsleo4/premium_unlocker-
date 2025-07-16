@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>File Locked</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+<body class="dark-mode">
+
+  <div class="center-box">
+    <h1 class="glow-text">🔐 File Locked</h1>
+    <p class="info-text">This file is password-protected. DM payment proof on Instagram to receive the password:</p>
+    <p class="insta-link">📩 <a href="https://www.instagram.com/absurdityarena" target="_blank">@absurdityarena</a></p>
+
+    <form method="POST">
+      <input type="password" name="password" placeholder="Enter password..." required class="password-input" />
+      <button type="submit" class="unlock-btn">🔓 Unlock Now</button>
+    </form>
+
+    {% if error %}
+    <div class="error-msg">{{ error }}</div>
+    {% endif %}
+  </div>
+
+</body>
+</html>

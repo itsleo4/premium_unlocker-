@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Unlock Premium Content</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <script>
+    function showPayment(type) {
+      document.getElementById("upiSection").style.display = "none";
+      document.getElementById("xmrSection").style.display = "none";
+      document.getElementById("afterPayment").style.display = "none";
+
+      if (type === "upi") {
+        document.getElementById("upiSection").style.display = "block";
+      } else {
+        document.getElementById("xmrSection").style.display = "block";
+      }
+
+      setTimeout(() => {
+        document.getElementById("afterPayment").style.display = "block";
+      }, 5000);
+    }
+  </script>
+</head>
+<body>
+  <h1 class="center neon-title">🔞 Unlock Exclusive 18+ Premium Content</h1>
+  <p class="center muted-text">Pay to unlock the <strong>CP file</strong>. Choose your payment method:</p>
+
+  <div class="center">
+    <button onclick="showPayment('upi')" class="btn">💰 Pay with UPI</button>
+    <button onclick="showPayment('xmr')" class="btn">🪙 Pay with XMR</button>
+  </div>
+
+  <div id="upiSection" class="payment-section hidden">
+    <h2>💸 Pay ₹199 via UPI</h2>
+    <p><strong>UPI ID:</strong> bharti00077-2@okaxis</p>
+    <img src="{{ url_for('static', filename='UPI.png') }}" alt="UPI QR" class="qr-img">
+  </div>
+
+  <div id="xmrSection" class="payment-section hidden">
+    <h2>💸 Pay 0.007 XMR</h2>
+    <p><strong>XMR Address:</strong><br>
+      87gaQqWXH8gMTSsxy9p79MEHQXHXzb9eM533inRy6BgUEe7v3g6KHpYAr8Be6LJkCYjAb4JcgmP26LHkCHE9CwC52x9pZnP</p>
+    <img src="{{ url_for('static', filename='XMR.png') }}" alt="XMR QR" class="qr-img">
+  </div>
+
+  <div id="afterPayment" class="after-payment hidden">
+    <h2 class="success">✅ Payment Confirmed</h2>
+    <p>
+      <a href="{{ url_for('unlock') }}" class="download-link">📂 Click here to unlock the file</a>
+    </p>
+    <p>🔐 This file is password-protected. Send screenshot proof to my Instagram to receive the password:</p>
+    <p><a href="https://www.instagram.com/absurdityarena" target="_blank" class="insta-link">📩 DM @absurdityarena</a></p>
+  </div>
+</body>
+</html>
